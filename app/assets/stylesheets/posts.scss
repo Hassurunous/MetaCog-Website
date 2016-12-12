@@ -1,0 +1,60 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/** ---------------------------
+          NEW POST
+----------------------------**/
+.new-post {
+    position: absolute;
+    top: 80px;
+    right: 50px;
+}
+
+.title-input {
+    line-height: 2em;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 0.2em;
+}
+
+textarea.body-input {
+    line-height: 1.5em;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    min-height: 150px;
+}
+
+/** ---------------------------
+         SHOW POST
+----------------------------**/
+
+.post-body {
+    word-wrap: break-word;
+}
+
+.post-title {
+    max-width: calc(100% - 60px);
+}
+
+.post-submenu {
+    padding-left: 20px;
+    font-size: 0.7em;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+.post-submenu > a {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/** ---------------------------
+        COMMENTs INDEX
+----------------------------**/
+
+textarea.comment-body-input {
+    line-height: 1.5em;
+    font-size: 1em;
+    margin-bottom: 20px;
+}

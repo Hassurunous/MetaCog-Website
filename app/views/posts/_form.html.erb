@@ -1,0 +1,11 @@
+<div class="row">
+    <%= @post.label :title %>
+    <%= @post.text_field :title %>
+</div>
+<div class="row">
+    <%= @post.label :body %>
+    <%= @post.text_area :body %>
+</div>
+<div class="row">
+    <%= @post.submit "Submit Post" %>
+</div>

@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <h2 class="title col-sm-6"><%= @post.title %></h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <p class="card card-block post-body col-sm-10">
+                <%= @post.body %>
+            </p>
+        </div>
+        <div class="row post-submenu">
+            <!-- <a href="#" class="inline">Comments</a> -->
+            <%= link_to "Comments", post_path(@post) %>
+            <a href="#" class="inline">Share</a>
+            <a href="#" class="inline">Save</a>
+            <a href="#" class="inline">Hide</a>
+            <a href="#" class="inline">Report</a>
+            <!-- <a href="#" class="inline">Delete</a> -->
+            <%= link_to 'Delete',  @post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <div class="container">
+        <%= form_for [@post, @comment] do |newcomment| %>
+        <div class="row">
+            <%= newcomment.text_area :body, class:"col-sm-10 comment-body-input" %>
+        </div>
+        <div class="row">
+            <div class="col-sm-10 submit-btn">
+                <%= newcomment.submit "Submit", class:"btn btn-primary float-sm-right" %>
+            </div>
+        </div>
+        <% end %>
+    </div>
+    <% @post.comments[0..-2].each do |comment| %>
+    <div class="card card-block post-body col-sm-10">
+        <p>
+            <%= comment.body %>
+        </p>
+        <hr>
+        <div class="post-submenu">
+            <%= link_to 'Delete', post_comment_path(comment.post, comment), confirm: 'Are you sure?', method: :delete %>
+        </div>
+    </div>
+    <% end %>
+</div>

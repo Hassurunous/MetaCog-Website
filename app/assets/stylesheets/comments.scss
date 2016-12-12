@@ -1,0 +1,43 @@
+// Place all the styles related to the comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+/** ---------------------------
+          NEW COMMENT
+----------------------------**/
+
+.title-input {
+    line-height: 2em;
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    padding: 0.2em;
+}
+
+textarea.body-input {
+    position: relative;
+    line-height: 1.5em;
+    margin-bottom: 20px;
+}
+
+/** ---------------------------
+         SHOW COMMENT
+----------------------------**/
+
+.comment-body {
+    word-wrap: break-word;
+}
+
+.comment-title {
+    max-width: calc(100% - 60px);
+}
+
+.comment-submenu {
+    padding-left: 20px;
+    font-size: 0.7em;
+    color: #444444;
+    margin-bottom: 20px;
+}
+
+.comment-submenu > a {
+    padding-left: 5px;
+    padding-right: 5px;
+}

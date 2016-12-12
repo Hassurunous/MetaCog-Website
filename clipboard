@@ -1,0 +1,44 @@
+<div class="container">
+    <%= form_for [@post, @comment] do |f| %>
+        <div class="row">
+            <%= f.label :body %>
+            <%= f.text_area :body %>
+        </div>
+        <div class="row">
+            <%= f.submit "Submit Comment" %>
+        </div>
+    <% end %>
+</div>
+<div class="container">
+    <% @post.comments.each do |comment| %>
+    <div class="row">
+        <div class="row col-xs-10">
+            <button class="btn btn-outline-primary btn-sm btn-inline" type="button" name="+" data-toggle="collapse" data-target="#comment<%= comment.id %>" aria-expanded="false" aria-controls="comment<%= comment.id %>">+</button>
+            <div class="row comment-submenu inline">
+                <!-- <a href="#" class="inline">Comments</a> -->
+                <%= link_to "Comments", comment_path(comment) %>
+                <a href="#" class="inline">Share</a>
+                <a href="#" class="inline">Save</a>
+                <a href="#" class="inline">Hide</a>
+                <a href="#" class="inline">Report</a>
+                <!-- <a href="#" class="inline">Delete</a> -->
+                <%= link_to 'Delete',  comment,  method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+            <div class="media-object">
+                <!-- TODO: User Information -->
+            </div>
+            <div class="collapse" id="comment<%= comment.id %>">
+                <div class="card card-block">
+                    <p class="comment-body">
+                        <%= comment.body %>
+                    </p>
+                    <div class="row menu">
+                        <!-- TODO: Post Menu -->
+                    </div>
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <% end %>
+</div>

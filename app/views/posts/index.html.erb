@@ -1,0 +1,40 @@
+<div class="container">
+    <div class="row">
+        <legend>Recent Posts</legend>
+    </div>
+    <div class="container">
+        <% @posts.each do |post| %>
+        <div class="row">
+            <div class="row col-xs-10">
+                <h4 class="post-title"><%= post.title %></h4>
+                <button class="btn btn-outline-primary btn-sm btn-inline" type="button" name="+" data-toggle="collapse" data-target="#post<%= post.id %>" aria-expanded="false" aria-controls="post<%= post.id %>">+</button>
+                <div class="row post-submenu inline">
+                    <!-- <a href="#" class="inline">Comments</a> -->
+                    <%= link_to "Comments", post_path(post) %>
+                    <a href="#" class="inline">Share</a>
+                    <a href="#" class="inline">Save</a>
+                    <a href="#" class="inline">Hide</a>
+                    <a href="#" class="inline">Report</a>
+                    <!-- <a href="#" class="inline">Delete</a> -->
+                    <%= link_to 'Delete',  post,  method: :delete, data: { confirm: 'Are you sure?' } %>
+                </div>
+                <div class="media-object">
+                    <!-- TODO: User Information -->
+                </div>
+                <div class="collapse" id="post<%= post.id %>">
+                    <div class="card card-block">
+                        <p class="post-body">
+                            <%= post.body %>
+                        </p>
+                        <div class="row menu">
+                            <!-- TODO: Post Menu -->
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <% end %>
+        <%= link_to "New Post", new_post_url, class:"btn btn-primary new-post" %>
+    </div>
+</div>
