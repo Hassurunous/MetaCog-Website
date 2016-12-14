@@ -1,26 +1,17 @@
 Rails.application.routes.draw do
+
   get 'static_pages/home'
 
-  get 'static_pages/help'
+  get 'static_pages/help', as: "resources"
 
-  # get 'posts/index'
-  #
-  # get 'posts/new'
-  #
-  # get 'posts/create'
-  #
-  # get 'posts/show'
-  #
-  # get 'posts/edit'
-  #
-  # get 'posts/update'
-  #
-  # get 'posts/delete'
+  get 'static_pages/about', as: "about"
+
+  get 'static_pages/contact', as: "contact"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :posts, only: [:index, :new, :create, :show, :destroy] do
     resources :comments, only: [:index, :create, :destroy]
   end
 
-  root to: "posts#index"
+  root to: "static_pages#home"
 end
