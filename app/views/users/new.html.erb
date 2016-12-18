@@ -1,2 +1,18 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<div class="container">
+    <h1 class="col-sm-6 offset-sm-3">Signup!</h1>
+    <div class="clearfix"></div>
+    <div class="col-sm-6 offset-sm-3">
+        <%= form_for(@user) do |f| %>
+        <div class="form-group">
+            <%= f.text_field :name, class: "form-control", placeholder: "Username"%><br>
+            <%= f.text_field :email, class: "form-control", placeholder: "Email"%><br>
+            <%= f.password_field :password, class: "form-control", placeholder: "Password"%><br>
+            <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirm Password"%><br>
+        </div>
+        <div class="text-xs-right">
+            <%= submit_tag "Submit", class: 'btn btn-default' %>
+        </div>
+        <% end %>
+    </div>
+</div>

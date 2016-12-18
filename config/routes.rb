@@ -5,9 +5,13 @@ Rails.application.routes.draw do
     resources :comments, only: [:index, :create, :destroy]
   end
 
+  # resources :users, only: [:show, :destroy]
+
   root to: "static_pages#home"
 
   get '/signup', to: 'users#new'
+
+  post '/users', to: 'users#create'
 
   get 'static_pages/home'
 
